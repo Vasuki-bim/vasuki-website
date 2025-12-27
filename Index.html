@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vasuki – Revit Electrical BIM Automation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: radial-gradient(circle at top, #0b1d33, #050b14);
+      color: #eaeaea;
+      line-height: 1.6;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 60px 8%;
+      gap: 40px;
+    }
+    header img {
+      max-width: 420px;
+      width: 100%;
+      justify-self: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #e6c77b;
+    }
+    h2 {
+      color: #e6c77b;
+      margin-top: 0;
+    }
+    p.lead {
+      font-size: 1.2rem;
+      opacity: 0.95;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 26px;
+      background: linear-gradient(135deg, #e6c77b, #caa24a);
+      color: #0b1d33;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    section {
+      padding: 70px 8%;
+    }
+    .section-dark {
+      background: #0b1d33;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: linear-gradient(180deg, #0f2746, #0a1a30);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .card h3 {
+      color: #e6c77b;
+      margin-top: 0;
+    }
+    .features ul {
+      padding-left: 18px;
+    }
+    .features li {
+      margin-bottom: 10px;
+    }
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .contact img {
+      max-width: 320px;
+      width: 100%;
+      justify-self: center;
+    }
+    footer {
+      padding: 30px 8%;
+      text-align: center;
+      font-size: 0.9rem;
+      background: #050b14;
+      opacity: 0.85;
+    }
+    a {
+      color: #e6c77b;
+    }
+    @media (max-width: 900px) {
+      header, .contact {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>VASUKI</h1>
+    <p class="lead">
+      Electrical BIM Automation Tool for <strong>Autodesk Revit 2025</strong>.<br>
+      Built to eliminate repetitive tasks, reduce errors, and save valuable engineering time.
+    </p>
+    <a href="#features" class="btn">Explore Features</a>
+  </div>
+  <img src="Vasuki_Logo.png" alt="Vasuki Logo" />
+</header>
+
+<section id="features" class="section-dark">
+  <h2>Key Capabilities</h2>
+  <div class="grid features">
+    <div class="card">
+      <h3>Electrical Calculators (Free)</h3>
+      <ul>
+        <li>Power, Voltage, Current & HP Calculator</li>
+        <li>Cable Size Calculator (NEC based)</li>
+        <li>Lighting / Lux Level Calculator</li>
+        <li>Conduit & Cable Tray Size Calculator</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>SNS Automation Commands (Licensed)</h3>
+      <ul>
+        <li>Conduit & Tray Numbering</li>
+        <li>DWG Number Auto Update</li>
+        <li>Grounding Text (G‑Text)</li>
+        <li>Excel‑Driven Cable Length Calculation</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Designed for Engineers</h3>
+      <ul>
+        <li>Works directly inside Revit</li>
+        <li>No Excel dependency for calculations</li>
+        <li>NEC‑aligned logic</li>
+        <li>Fast, consistent & reliable results</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Support & Licensing</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Hybrid Licensing Model</h3>
+      <p>
+        All calculator tools are <strong>free to use</strong> and do not modify Revit model elements.
+        Advanced SNS commands require license activation because they directly update model data.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Best Practices</h3>
+      <ul>
+        <li>Test licensed commands on backup models</li>
+        <li>Review results after execution</li>
+        <li>Use automation once workflow is understood</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <h2>What’s Next</h2>
+  <div class="grid">
+    <div class="card">
+      <ul>
+        <li>Advanced cable list revision cross‑checker</li>
+        <li>Automated cable tray hanger placement</li>
+        <li>Electrical schedules & load reports</li>
+        <li>BOQ / BOM automation</li>
+        <li>More NEC‑based validation tools</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Contact & Developer</h2>
+  <div class="contact">
+    <div>
+      <p><strong>Siddireddy Naga Srinivasu</strong></p>
+      <p>📞 <a href="tel:+918330443430">+91‑83330‑44330</a></p>
+      <p>✉️ <a href="mailto:naga.srinu.54@gmail.com">naga.srinu.54@gmail.com</a></p>
+      <p>🔗 <a href="https://www.linkedin.com/in/siddu-sri-9a83a8174" target="_blank">LinkedIn Profile</a></p>
+    </div>
+    <img src="help.png" alt="Vasuki Support & Licensing" />
+  </div>
+</section>
+
+<footer>
+  © 2025 Vasuki – Revit Electrical BIM Automation Tool
+</footer>
+
+</body>
+</html>
