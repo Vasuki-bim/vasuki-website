@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <meta name="author" content="Siddireddy Naga Srinivasu">
 
   <meta name="description"
-        content="Vasuki is a professional Revit electrical BIM automation plugin delivering accurate electrical calculations, NEC-based sizing, conduit and tray numbering, and Excel-driven validation tools for engineers.">
+        content="Vasuki is a professional Revit electrical BIM automation plugin delivering accurate electrical calculations, NEC-based sizing, conduit and tray numbering, Excel-driven cross checking, and productivity tools for engineers.">
 
   <meta name="keywords"
         content="Vasuki Revit plugin, Revit electrical automation, BIM electrical tools, NEC cable sizing Revit, conduit numbering Revit">
@@ -21,6 +22,7 @@
       color: #eaeaea;
       line-height: 1.6;
     }
+
     header {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -28,19 +30,30 @@
       padding: 60px 8%;
       gap: 40px;
     }
+
     header img {
       max-width: 420px;
       width: 100%;
       justify-self: center;
     }
+
     h1 {
       font-size: 3rem;
       margin-bottom: 10px;
       color: #e6c77b;
       letter-spacing: 1px;
     }
-    h2 { color: #e6c77b; }
-    p.lead { font-size: 1.2rem; }
+
+    h2 {
+      color: #e6c77b;
+      margin-top: 0;
+    }
+
+    p.lead {
+      font-size: 1.2rem;
+      opacity: 0.95;
+    }
+
     .btn {
       display: inline-block;
       margin-top: 20px;
@@ -51,31 +64,70 @@
       text-decoration: none;
       font-weight: 600;
     }
-    section { padding: 70px 8%; }
-    .section-dark { background: #0b1d33; }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    .section-dark {
+      background: #0b1d33;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 30px;
     }
+
     .card {
       background: linear-gradient(180deg, #0f2746, #0a1a30);
       border-radius: 16px;
       padding: 28px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
-    .card h3 { color: #e6c77b; }
-    ul { padding-left: 18px; }
-    li { margin-bottom: 10px; }
+
+    .card h3 {
+      color: #e6c77b;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .contact img {
+      max-width: 220px;
+      justify-self: center;
+    }
+
     footer {
       padding: 30px 8%;
       text-align: center;
       font-size: 0.9rem;
       background: #050b14;
+      opacity: 0.85;
     }
-    a { color: #e6c77b; }
+
+    a {
+      color: #e6c77b;
+    }
+
     @media (max-width: 900px) {
-      header { grid-template-columns: 1fr; text-align: center; }
+      header, .contact {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -87,24 +139,26 @@
     <h1>VASUKI</h1>
     <p class="lead">
       Professional Electrical BIM Automation for <strong>Autodesk Revit 2025</strong>.<br>
-      Designed to eliminate repetitive workflows, reduce errors,
-      and significantly improve electrical engineering productivity.
+      Built to eliminate repetitive workflows, reduce design errors,
+      and save valuable engineering time.
     </p>
     <a href="#features" class="btn">Explore Features</a>
   </div>
+
   <img src="Vasuki_Logo.png" alt="Vasuki Logo">
 </header>
 
 <section id="features" class="section-dark">
   <h2>Key Capabilities</h2>
+
   <div class="grid">
     <div class="card">
       <h3>Electrical Calculators (Free)</h3>
       <ul>
         <li>Power, Voltage, Current & HP Calculations</li>
-        <li>NEC-Compliant Cable Sizing</li>
-        <li>Lighting & Lux Level Calculations</li>
-        <li>Conduit & Cable Tray Sizing</li>
+        <li>NEC-compliant Cable Sizing Calculator</li>
+        <li>Lighting Design and Lux Level Calculator</li>
+        <li>Conduit and Cable Tray Sizing Tools</li>
       </ul>
     </div>
 
@@ -113,7 +167,7 @@
       <ul>
         <li>Conduit & Cable Tray Numbering</li>
         <li>DWG Number Auto Synchronization</li>
-        <li>Grounding Text Automation (G-Text)</li>
+        <li>Grounding Identification Text (G-Text)</li>
         <li>Excel-Driven Cable Length Validation</li>
       </ul>
     </div>
@@ -121,7 +175,7 @@
     <div class="card">
       <h3>Designed for Engineers</h3>
       <ul>
-        <li>Runs fully inside Revit</li>
+        <li>Works directly inside Revit</li>
         <li>No Excel dependency for calculations</li>
         <li>NEC-aligned logic</li>
         <li>Fast, accurate, and reliable</li>
@@ -132,20 +186,22 @@
 
 <!-- DOWNLOAD SECTION -->
 <section>
-  <h2>Downloads</h2>
+  <h2>Vasuki Plugin & Presentation</h2>
+
   <div class="grid">
     <div class="card">
-      <h3>Vasuki Presentation</h3>
-      <p>Complete overview of features and workflows.</p>
+      <h3>Product Overview</h3>
+      <p>Complete Vasuki feature overview and workflow explanation.</p>
       <a href="Vasuki_ppt.pdf" class="btn">📘 Download Presentation</a>
     </div>
 
     <div class="card">
-      <h3>Vasuki Plugin Installer</h3>
-      <p>Installer for Autodesk Revit 2025.</p>
-      <a href="Vasuki_Setup.exe" class="btn">⬇ Download Plugin</a>
+      <h3>Plugin Installer</h3>
+      <p>Installer package for Autodesk Revit 2025.</p>
+      <a href="Vasuki_Setup.exe" class="btn">⬇ Download Vasuki Plugin</a>
       <p style="font-size:13px;opacity:0.75;">
-        Windows SmartScreen may appear. Click <b>More Info → Run Anyway</b>.
+        Windows SmartScreen may display a warning.
+        Click <b>More Info → Run Anyway</b>.
       </p>
     </div>
   </div>
@@ -154,60 +210,107 @@
 <!-- VIDEO SECTION -->
 <section class="section-dark">
   <h2>Vasuki – Demo Videos</h2>
-  <p>Short demonstrations showcasing Vasuki automation tools inside Revit.</p>
+  <p>Short demonstrations showcasing Vasuki automation features inside Revit.</p>
 
   <div class="grid">
 
     <div class="card">
       <h3>Lighting Calculator</h3>
-      <iframe width="100%" height="215"
-        src="https://www.youtube.com/embed/Y-xxMU9VKzk"
-        frameborder="0" allowfullscreen></iframe>
+      <div style="position:relative;padding-bottom:56.25%;height:0;">
+        <iframe src="https://www.youtube.com/embed/Y-xxMU9VKzk"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
 
     <div class="card">
-      <h3>Conduit & Tray Calculator</h3>
-      <iframe width="100%" height="215"
-        src="https://www.youtube.com/embed/WKcKnFX3UOw"
-        frameborder="0" allowfullscreen></iframe>
+      <h3>Conduit & Cable Tray Calculator</h3>
+      <div style="position:relative;padding-bottom:56.25%;height:0;">
+        <iframe src="https://www.youtube.com/embed/WKcKnFX3UOw"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
 
     <div class="card">
       <h3>Cable Size Calculator</h3>
-      <iframe width="100%" height="215"
-        src="https://www.youtube.com/embed/7UCX3Zua9Cg"
-        frameborder="0" allowfullscreen></iframe>
+      <div style="position:relative;padding-bottom:56.25%;height:0;">
+        <iframe src="https://www.youtube.com/embed/7UCX3Zua9Cg"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
 
     <div class="card">
       <h3>Power Calculator</h3>
-      <iframe width="100%" height="215"
-        src="https://www.youtube.com/embed/iu2tWEOMEvk"
-        frameborder="0" allowfullscreen></iframe>
+      <div style="position:relative;padding-bottom:56.25%;height:0;">
+        <iframe src="https://www.youtube.com/embed/iu2tWEOMEvk"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
 
   </div>
 </section>
 
+<!-- LICENSE -->
 <section class="section-dark">
   <h2>License Activation</h2>
+
   <div class="grid">
     <div class="card">
       <p>
-        Free access is provided for all calculation tools.
+        All calculation tools are free to use.
         Advanced automation commands require license approval
-        to ensure safe modification of Revit model data.
+        as they directly modify Revit model data.
       </p>
+      <ul>
+        <li>✔ Free tools – No license required</li>
+        <li>🔐 Automation tools – License required</li>
+        <li>📧 License issued after verification</li>
+      </ul>
     </div>
 
     <div class="card">
       <a class="btn"
-        href="mailto:naga.srinu.54@gmail.com?subject=Vasuki%20License%20Request">
+         href="mailto:naga.srinu.54@gmail.com?subject=Vasuki%20License%20Request">
         📩 Request License
       </a>
     </div>
   </div>
 </section>
+
+<!-- CONTACT -->
+<section>
+  <h2>Contact & Developer</h2>
+
+  <div class="contact">
+    <div>
+      <p><strong>Siddireddy Naga Srinivasu</strong></p>
+      <p>📞 <a href="tel:+918330443430">+91-83330-44330</a></p>
+      <p>✉️ <a href="mailto:naga.srinu.54@gmail.com">naga.srinu.54@gmail.com</a></p>
+      <p>
+        🔗 <a href="https://www.linkedin.com/in/siddu-sri-9a83a8174"
+              target="_blank" rel="noopener noreferrer">
+          LinkedIn Profile
+        </a>
+      </p>
+    </div>
+
+    <img src="help.png" alt="Vasuki Support">
+  </div>
+</section>
+
+<script>
+  let count = localStorage.getItem("downloadCount") || 0;
+  document.querySelectorAll('a[href$=".exe"]').forEach(btn => {
+    btn.addEventListener("click", () => {
+      count++;
+      localStorage.setItem("downloadCount", count);
+      console.log("Total downloads:", count);
+    });
+  });
+</script>
 
 <footer>
   © 2025 Vasuki – Professional Revit Electrical BIM Automation Platform
