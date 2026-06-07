@@ -80,15 +80,32 @@
       letter-spacing: 0;
     }
 
-    .brand-mark {
-      display: grid;
-      width: 42px;
-      height: 42px;
-      place-items: center;
+    .brand-logo-wrap {
+      display: inline-flex;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
       border: 1px solid rgba(255, 255, 255, 0.38);
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
+      overflow: hidden;
+    }
+
+    .brand-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 5px;
+    }
+
+    .hero-logo {
+      display: block;
+      max-width: 118px;
+      max-height: 86px;
+      margin-bottom: 22px;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
     }
 
     .nav-links {
@@ -285,6 +302,10 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .download-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
     .card {
       min-width: 0;
       padding: 26px;
@@ -425,6 +446,11 @@
       font-size: 0.92rem;
     }
 
+    .band .card .note {
+      color: var(--ink-soft);
+      background: #f1f4f7;
+    }
+
     .media-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -471,6 +497,23 @@
 
     .developer-card {
       border-left: 4px solid var(--teal);
+    }
+
+    .developer-profile {
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .developer-photo {
+      width: 118px;
+      aspect-ratio: 1;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 12px 28px rgba(23, 25, 29, 0.14);
     }
 
     .footer {
@@ -521,6 +564,7 @@
       .proof-strip,
       .grid,
       .grid-two,
+      .download-grid,
       .product-flow,
       .media-grid,
       .split {
@@ -582,6 +626,20 @@
         width: 100%;
       }
 
+      .brand-logo-wrap {
+        width: 42px;
+        height: 42px;
+      }
+
+      .hero-logo {
+        max-width: 96px;
+        max-height: 72px;
+      }
+
+      .developer-profile {
+        grid-template-columns: 1fr;
+      }
+
       .flow-row {
         grid-template-columns: 1fr;
         gap: 6px;
@@ -599,7 +657,14 @@
   <header class="site-header">
     <nav class="nav" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="Vasuki home">
-        <span class="brand-mark">V</span>
+        <span class="brand-logo-wrap">
+          <img
+            class="brand-logo"
+            src="Vasuki_Logo.png"
+            alt="Vasuki logo"
+            onerror="this.onerror=null;this.src='https://www.vasukibim.com/Vasuki_Logo.png';"
+          />
+        </span>
         <span>VASUKI</span>
       </a>
 
@@ -616,6 +681,12 @@
   <main id="top">
     <section class="hero" aria-label="Vasuki product overview">
       <div class="hero-content">
+        <img
+          class="hero-logo"
+          src="Vasuki_Logo.png"
+          alt="Vasuki logo"
+          onerror="this.onerror=null;this.src='https://www.vasukibim.com/Vasuki_Logo.png';"
+        />
         <span class="eyebrow">Autodesk Revit 2025 electrical BIM automation</span>
         <h1>VASUKI</h1>
         <p class="hero-subtitle">
@@ -825,7 +896,7 @@
           2025 plugin package when you are ready to test Vasuki.
         </p>
 
-        <div class="grid grid-two">
+        <div class="grid download-grid">
           <article class="card download-card">
             <div>
               <h3>Product Overview</h3>
@@ -854,6 +925,23 @@
             </div>
             <div class="cta-row">
               <a href="Vasuki_Setup.exe" class="button button-primary" data-download="plugin">Download Vasuki Plugin</a>
+            </div>
+          </article>
+
+          <article class="card download-card">
+            <div>
+              <h3>PDF Engine Installer</h3>
+              <p>
+                Dedicated setup package for the Vasuki PDF Engine, used for professional
+                report preparation, PDF output workflows, and documentation-ready exports.
+              </p>
+              <p class="note">
+                Keep this installer with the main Vasuki package when publishing the site,
+                so users can install the PDF reporting engine separately when required.
+              </p>
+            </div>
+            <div class="cta-row">
+              <a href="VasukiPDFEngineSetup.exe" class="button button-primary" data-download="pdf-engine">Download PDF Engine</a>
             </div>
           </article>
         </div>
@@ -959,11 +1047,21 @@
 
         <div class="split">
           <article class="card developer-card">
-            <h3>Siddireddy Naga Srinivasu</h3>
-            <p>
-              Developer of Vasuki, focused on practical electrical BIM automation,
-              engineering checks, and Revit productivity tooling.
-            </p>
+            <div class="developer-profile">
+              <img
+                class="developer-photo"
+                src="help.png"
+                alt="Siddireddy Naga Srinivasu"
+                onerror="this.onerror=null;this.src='https://www.vasukibim.com/help.png';"
+              />
+              <div>
+                <h3>Siddireddy Naga Srinivasu</h3>
+                <p>
+                  Developer of Vasuki, focused on practical electrical BIM automation,
+                  engineering checks, Revit productivity tooling, and PDF reporting workflows.
+                </p>
+              </div>
+            </div>
             <ul class="contact-lines">
               <li>Phone: <a href="tel:+918330443430">+91 83330 44330</a></li>
               <li>Email: <a href="mailto:naga.srinu.54@gmail.com">naga.srinu.54@gmail.com</a></li>
@@ -994,7 +1092,14 @@
   </footer>
 
   <script>
-    const downloadLinks = document.querySelectorAll("[data-download='plugin']");
+    const previewSection = new URLSearchParams(window.location.search).get("section");
+    if (previewSection) {
+      requestAnimationFrame(() => {
+        document.getElementById(previewSection)?.scrollIntoView({ block: "start" });
+      });
+    }
+
+    const downloadLinks = document.querySelectorAll("[data-download]");
     downloadLinks.forEach((link) => {
       link.addEventListener("click", () => {
         const currentCount = Number(localStorage.getItem("vasukiDownloadCount") || 0);
