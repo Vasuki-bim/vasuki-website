@@ -31,6 +31,9 @@ a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 button, input, textarea, select { font: inherit; }
 
+.skip-link { position: fixed; top: 8px; left: 8px; z-index: 100; padding: 10px 14px; color: var(--navy-950); background: var(--gold-light); font-size: 12px; font-weight: 750; transform: translateY(-150%); transition: transform .2s ease; }
+.skip-link:focus { transform: translateY(0); }
+
 .shell {
   width: min(calc(100% - 48px), var(--shell));
   margin-inline: auto;
@@ -146,15 +149,26 @@ a:hover .arrow { transform: translate(2px, -2px); }
 .system-footer div i { width: 100%; height: 100%; display: block; background: linear-gradient(90deg, var(--teal), var(--gold)); }
 .system-footer strong { color: var(--gold-light); font-size: 9px; }
 
-.product-mark { width: 45px; height: 45px; flex: 0 0 45px; display: grid; place-items: center; position: relative; overflow: hidden; color: white; background: #183d58; border: 1px solid rgba(255,255,255,.13); border-radius: 9px; font-family: Consolas, "Courier New", monospace; font-weight: 760; font-size: 16px; box-shadow: inset 0 0 0 2px rgba(255,255,255,.025); }
-.product-mark::before { content: ""; width: 26px; height: 26px; border: 1px solid currentColor; opacity: .25; transform: rotate(45deg); position: absolute; }
-.product-mark span { position: relative; z-index: 1; }
+.product-mark { width: 45px; height: 45px; flex: 0 0 45px; display: grid; place-items: center; position: relative; overflow: hidden; color: white; background: #183d58; border: 1px solid rgba(255,255,255,.13); border-radius: 9px; box-shadow: inset 0 0 0 2px rgba(255,255,255,.025); }
+.product-mark::before, .product-mark::after { content: ""; position: absolute; box-sizing: border-box; }
 .mark-revit { color: #79d5ee; background: #0e3f5a; }
+.mark-revit::before { width: 21px; height: 25px; left: 9px; top: 10px; border: 2px solid currentColor; background: repeating-linear-gradient(to bottom, transparent 0 5px, currentColor 5px 6px); transform: skewY(-8deg); }
+.mark-revit::after { width: 8px; height: 20px; right: 8px; top: 12px; border: 2px solid currentColor; border-left: 0; opacity: .65; transform: skewY(12deg); }
 .mark-cad { color: #ff8e71; background: #4b2530; }
-.mark-pdf { color: #f1cf73; background: #4d4023; font-size: 9px; }
+.mark-cad::before { width: 24px; height: 24px; border: 1px solid currentColor; background: linear-gradient(currentColor,currentColor) center/1px 100% no-repeat, linear-gradient(90deg,currentColor,currentColor) center/100% 1px no-repeat; opacity: .7; }
+.mark-cad::after { width: 26px; height: 2px; background: currentColor; transform: rotate(-38deg); box-shadow: 0 -5px 0 -0.5px rgba(255,142,113,.55); }
+.mark-pdf { color: #f1cf73; background: #4d4023; }
+.mark-pdf::before { width: 21px; height: 27px; left: 12px; top: 8px; border: 2px solid currentColor; border-radius: 1px; background: linear-gradient(135deg, transparent 0 7px, rgba(241,207,115,.18) 7px); }
+.mark-pdf::after { content: "PDF"; left: 8px; right: 8px; bottom: 10px; padding: 2px 0; color: #4d4023; background: currentColor; font: 800 7px/1 Consolas, "Courier New", monospace; letter-spacing: .04em; text-align: center; }
 .mark-termination { color: #80ddd3; background: #164b48; }
-.mark-lighting { color: #ffe77f; background: #4d4520; font-size: 13px; }
+.mark-termination::before { width: 28px; height: 2px; left: 8px; top: 21px; background: currentColor; opacity: .7; }
+.mark-termination::after { width: 7px; height: 7px; left: 8px; top: 18px; border: 2px solid currentColor; border-radius: 50%; background: #164b48; box-shadow: 10px 0 0 -2px #164b48, 10px 0 0 0 currentColor, 20px 0 0 -2px #164b48, 20px 0 0 0 currentColor; }
+.mark-lighting { color: #ffe77f; background: #4d4520; }
+.mark-lighting::before { width: 19px; height: 19px; left: 12px; top: 7px; border: 2px solid currentColor; border-radius: 50%; box-shadow: 0 0 12px rgba(255,231,127,.28); }
+.mark-lighting::after { width: 12px; height: 8px; left: 16px; top: 25px; border-top: 2px solid currentColor; border-bottom: 2px solid currentColor; box-shadow: 0 4px 0 -1px currentColor; }
 .mark-overview { color: #c0c8ff; background: #30385c; }
+.mark-overview::before { content: "i"; width: 23px; height: 23px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; font: 800 14px/1 Georgia, serif; }
+.mark-overview::after { display: none; }
 
 .suite-strip { position: relative; z-index: 4; color: white; background: #0b2233; border-top: 1px solid rgba(255,255,255,.07); }
 .suite-strip-grid { display: grid; grid-template-columns: repeat(5, 1fr); }
@@ -178,7 +192,7 @@ a:hover .arrow { transform: translate(2px, -2px); }
 
 .suite-section { background: var(--paper); }
 .product-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
-.product-card { min-height: 390px; grid-column: span 2; padding: 28px; display: flex; flex-direction: column; border: 1px solid var(--line); background: white; position: relative; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; }
+.product-card { min-height: 455px; grid-column: span 2; padding: 28px; display: flex; flex-direction: column; border: 1px solid var(--line); background: white; position: relative; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; }
 .product-card:nth-child(4) { grid-column: 2 / span 2; }
 .product-card:hover { transform: translateY(-5px); box-shadow: 0 28px 70px rgba(16,37,54,.1); }
 .product-card::after { content: ""; height: 3px; position: absolute; inset: auto 0 0; background: var(--card-accent, var(--teal)); transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
@@ -192,7 +206,7 @@ a:hover .arrow { transform: translate(2px, -2px); }
 .product-number { color: #a6afb5; font-family: Consolas, "Courier New", monospace; font-size: 9px; letter-spacing: .14em; }
 .product-card > small { color: #6e7f86; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; }
 .product-card h3 { margin: 9px 0 13px; font-size: 23px; letter-spacing: -.025em; }
-.product-card > p { margin: 0; min-height: 76px; color: #68767e; font-size: 13px; line-height: 1.65; }
+.product-card > p { margin: 0; min-height: 92px; color: #68767e; font-size: 13px; line-height: 1.65; }
 .product-card ul { list-style: none; padding: 0; margin: 24px 0; display: grid; gap: 9px; }
 .product-card li { padding-left: 16px; color: #384b57; font-size: 11px; position: relative; }
 .product-card li::before { content: ""; width: 5px; height: 5px; border-right: 1px solid var(--card-accent); border-bottom: 1px solid var(--card-accent); transform: rotate(-45deg); position: absolute; left: 1px; top: 4px; }
@@ -217,6 +231,40 @@ a:hover .arrow { transform: translate(2px, -2px); }
 
 .pdf-section { background: var(--cream); overflow: hidden; }
 .pdf-layout { display: grid; grid-template-columns: .95fr 1.05fr; gap: 100px; align-items: center; }
+.pdf-workspace { min-height: 610px; position: relative; display: grid; place-items: center; perspective: 1200px; }
+.pdf-workspace::before { content: ""; width: 78%; height: 64%; position: absolute; left: 12%; bottom: 7%; background: rgba(13,41,61,.18); filter: blur(34px); transform: rotate(-5deg); }
+.pdf-window { width: 490px; max-width: 100%; position: relative; overflow: hidden; color: #dce5e8; background: #0b1d2b; border: 1px solid rgba(215,180,92,.28); border-radius: 8px; box-shadow: 0 35px 90px rgba(16,37,54,.22); transform: rotateY(4deg) rotateZ(-1.2deg); }
+.pdf-window::after { content: "BLUEBEAM-AWARE MARKUP"; position: absolute; right: 13px; bottom: 9px; color: #6f8590; font: 6px/1 Consolas, "Courier New", monospace; letter-spacing: .12em; }
+.pdf-toolbar { height: 55px; display: flex; align-items: center; gap: 9px; padding: 0 14px; color: #d9e2e6; background: #071522; border-bottom: 1px solid rgba(255,255,255,.1); }
+.pdf-brand-dot { width: 11px; height: 11px; border: 2px solid var(--gold); transform: rotate(45deg); }
+.pdf-toolbar strong { font-size: 9px; letter-spacing: .12em; }
+.pdf-toolbar > div { margin-left: auto; display: flex; gap: 5px; }
+.pdf-toolbar > div span { padding: 6px 7px; color: #718691; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.06); font: 6px/1 Consolas, "Courier New", monospace; letter-spacing: .08em; }
+.pdf-stage { min-height: 492px; display: grid; grid-template-columns: 62px 1fr; background: #173040; }
+.pdf-stage aside { display: flex; flex-direction: column; align-items: center; gap: 15px; padding-top: 19px; background: #0b1b28; border-right: 1px solid rgba(255,255,255,.08); }
+.pdf-stage aside span { color: #607682; font: 6px/1 Consolas, "Courier New", monospace; letter-spacing: .1em; writing-mode: vertical-rl; transform: rotate(180deg); }
+.pdf-stage aside i { width: 22px; height: 4px; background: #334b59; border-radius: 5px; }
+.pdf-stage aside i.active { background: var(--gold); box-shadow: 0 0 10px rgba(215,180,92,.28); }
+.pdf-sheet { width: 324px; aspect-ratio: .72; margin: 22px auto 40px; position: relative; overflow: hidden; color: var(--ink); background: #fdfcf8; border: 1px solid #d9dedc; box-shadow: 0 13px 35px rgba(0,0,0,.24); }
+.sheet-title { height: 55px; margin: 18px 20px 0; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--gold); }
+.sheet-title b { font-size: 9px; letter-spacing: .08em; }
+.sheet-title span { color: #7d898f; font: 6px/1 Consolas, "Courier New", monospace; }
+.sheet-grid { position: absolute; inset: 93px 27px 55px; opacity: .38; background-image: linear-gradient(#bdc8ca 1px, transparent 1px), linear-gradient(90deg,#bdc8ca 1px,transparent 1px); background-size: 27px 27px; }
+.sheet-grid i { position: absolute; height: 2px; background: #6a7f88; transform-origin: left; }
+.sheet-grid i:nth-child(1) { width: 115px; left: 25px; top: 70px; transform: rotate(14deg); }
+.sheet-grid i:nth-child(2) { width: 95px; left: 100px; top: 105px; transform: rotate(90deg); }
+.sheet-grid i:nth-child(3) { width: 132px; left: 37px; top: 178px; transform: rotate(-12deg); }
+.sheet-grid i:nth-child(4) { width: 74px; left: 163px; top: 230px; transform: rotate(90deg); }
+.sheet-grid i:nth-child(5) { width: 145px; left: 50px; top: 284px; transform: rotate(8deg); }
+.sheet-grid i:nth-child(6) { width: 92px; left: 157px; top: 39px; transform: rotate(90deg); }
+.markup-callout { position: absolute; right: 27px; top: 127px; width: 135px; padding: 9px; color: #0f4854; background: #d9f1ee; border: 1px solid #59a99f; box-shadow: 0 4px 12px rgba(16,37,54,.08); }
+.markup-callout::before { content: ""; width: 47px; height: 1px; position: absolute; left: -42px; bottom: -15px; background: #3d968c; transform: rotate(-36deg); }
+.markup-callout b, .markup-callout span { display: block; }
+.markup-callout b { font-size: 7px; letter-spacing: .06em; }
+.markup-callout span { margin-top: 4px; color: #4f7477; font-size: 6px; }
+.markup-cloud { width: 95px; height: 65px; position: absolute; left: 42px; top: 238px; border: 3px dashed #d66d57; border-radius: 42% 48% 45% 51%; transform: rotate(-7deg); }
+.markup-stamp { position: absolute; right: 35px; bottom: 83px; padding: 7px 9px; color: #4c9189; border: 2px solid #65a59e; transform: rotate(-7deg); font: 800 7px/1 Consolas, "Courier New", monospace; letter-spacing: .08em; }
+.sheet-footer { position: absolute; inset: auto 20px 17px; padding-top: 8px; display: flex; justify-content: space-between; color: #8a969b; border-top: 1px solid #dfe4e2; font: 6px/1 Consolas, "Courier New", monospace; letter-spacing: .08em; }
 .pdf-visual { min-height: 605px; position: relative; display: grid; place-items: center; }
 .report-shadow { position: absolute; inset: 15% 10% 4%; background: rgba(13,41,61,.13); filter: blur(35px); transform: rotate(-5deg); }
 .report-page { width: 370px; aspect-ratio: .71; position: absolute; background: white; border: 1px solid #dfe3e1; box-shadow: 0 24px 70px rgba(16,37,54,.13); }
@@ -261,13 +309,13 @@ a:hover .arrow { transform: translate(2px, -2px); }
 
 .downloads-section { color: white; background: #071827; }
 .downloads-section .section-heading > p { color: #8fa1ab; }
-.download-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-.download-card { min-height: 355px; padding: 25px; display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.035); }
-.featured-download { grid-column: span 2; background: linear-gradient(135deg, rgba(215,180,92,.16), rgba(255,255,255,.035)); border-color: rgba(215,180,92,.28); }
+.download-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.download-card { min-height: 330px; padding: 25px; display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.035); }
+.featured-download { background: linear-gradient(135deg, rgba(215,180,92,.16), rgba(255,255,255,.035)); border-color: rgba(215,180,92,.28); }
 .download-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 34px; }
 .download-top > span:not(.product-mark) { color: #6f8490; font-family: Consolas, "Courier New", monospace; font-size: 7px; letter-spacing: .12em; }
 .download-card h3 { margin: 0 0 12px; font-size: 22px; }
-.featured-download h3 { font-size: 32px; }
+.featured-download h3 { font-size: 22px; }
 .download-card > p { margin: 0 0 25px; color: #93a4ad; font-size: 12px; line-height: 1.65; }
 .download-card .button, .download-card .text-link { margin-top: auto; align-self: flex-start; }
 .download-card .text-link { color: white; border-bottom-color: rgba(255,255,255,.28); }
@@ -344,7 +392,7 @@ footer { color: #758994; background: var(--navy-950); }
   .product-card:last-child { grid-column: span 2; }
   .workflow-layout, .pdf-layout, .about-layout { grid-template-columns: 1fr; }
   .workflow-layout { gap: 55px; }
-  .pdf-visual { order: 2; min-height: 560px; }
+  .pdf-visual, .pdf-workspace { order: 2; min-height: 560px; }
   .about-layout { gap: 80px; }
   .portrait-wrap { width: min(520px, 86%); margin-inline: auto; }
   .cta-inner { grid-template-columns: 70px 1fr; padding-block: 55px; }
@@ -376,10 +424,10 @@ footer { color: #758994; background: var(--navy-950); }
   .qa-proof strong { font-size: 23px; }
   .qa-steps article { grid-template-columns: 30px 1fr; }
   .qa-steps article > i { display: none; }
-  .pdf-visual { min-height: 480px; transform: scale(.83); margin: -45px -40px; }
+  .pdf-visual, .pdf-workspace { min-height: 480px; transform: scale(.83); margin: -45px -40px; }
+  .pdf-window { width: 470px; }
   .inline-actions { align-items: flex-start; flex-direction: column; }
   .download-grid { grid-template-columns: 1fr; }
-  .featured-download { grid-column: auto; }
   .download-card { min-height: 315px; }
   .safety-note { grid-template-columns: 1fr; gap: 8px; }
   .video-grid { grid-template-columns: 1fr; }
