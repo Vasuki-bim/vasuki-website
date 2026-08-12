@@ -97,7 +97,7 @@ a:hover .arrow { transform: translate(2px, -2px); }
 .mobile-menu nav a:last-child { border-bottom: 0; color: var(--gold-light); }
 
 .hero {
-  min-height: 690px;
+  min-height: 760px;
   position: relative;
   overflow: hidden;
   color: white;
@@ -109,7 +109,7 @@ a:hover .arrow { transform: translate(2px, -2px); }
 .hero::after { content: ""; position: absolute; inset: auto -12% -41% 38%; height: 560px; border: 1px solid rgba(215,180,92,.12); transform: rotate(-7deg); border-radius: 50%; }
 .hero-grid, .workflow-grid, .cta-grid { position: absolute; inset: 0; opacity: .28; background-image: linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px); background-size: 52px 52px; mask-image: linear-gradient(to right, transparent, black 45%, black); }
 
-.hero-layout { min-height: 690px; display: grid; grid-template-columns: 1.02fr .98fr; gap: 70px; align-items: center; position: relative; z-index: 2; padding-block: 72px 80px; }
+.hero-layout { min-height: 760px; display: grid; grid-template-columns: 1.02fr .98fr; gap: 70px; align-items: center; position: relative; z-index: 2; padding-block: 72px 80px; }
 .hero-copy { max-width: 590px; }
 .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--gold-light); font-family: Consolas, "Courier New", monospace; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .eyebrow span { width: 28px; height: 1px; background: currentColor; position: relative; }
@@ -136,6 +136,7 @@ a:hover .arrow { transform: translate(2px, -2px); }
 .system-node { min-height: 67px; display: flex; align-items: center; gap: 12px; padding: 12px; background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.09); }
 .system-node.active { border-color: rgba(43,181,169,.35); background: linear-gradient(90deg, rgba(43,181,169,.1), rgba(255,255,255,.025)); }
 .system-node.gold-node { border-color: rgba(215,180,92,.28); background: linear-gradient(90deg, rgba(215,180,92,.09), rgba(255,255,255,.025)); }
+.system-node.studio-node { border-color: rgba(229,142,72,.32); background: linear-gradient(90deg, rgba(229,142,72,.1), rgba(255,255,255,.025)); }
 .system-node > span:not(.product-mark) { display: flex; flex-direction: column; gap: 4px; }
 .system-node small { color: #647984; font-family: Consolas, "Courier New", monospace; font-size: 7px; letter-spacing: .12em; }
 .system-node strong { font-size: 12px; font-weight: 600; }
@@ -151,6 +152,8 @@ a:hover .arrow { transform: translate(2px, -2px); }
 
 .product-mark { width: 45px; height: 45px; flex: 0 0 45px; display: grid; place-items: center; position: relative; overflow: hidden; color: white; background: #183d58; border: 1px solid rgba(255,255,255,.13); border-radius: 9px; box-shadow: inset 0 0 0 2px rgba(255,255,255,.025); }
 .product-mark::before, .product-mark::after { content: ""; position: absolute; box-sizing: border-box; }
+.visual-icon::before, .visual-icon::after { display: none; }
+.visual-icon img { width: 100%; height: 100%; object-fit: cover; }
 .mark-revit { color: #79d5ee; background: #0e3f5a; }
 .mark-revit::before { width: 21px; height: 25px; left: 9px; top: 10px; border: 2px solid currentColor; background: repeating-linear-gradient(to bottom, transparent 0 5px, currentColor 5px 6px); transform: skewY(-8deg); }
 .mark-revit::after { width: 8px; height: 20px; right: 8px; top: 12px; border: 2px solid currentColor; border-left: 0; opacity: .65; transform: skewY(12deg); }
@@ -166,12 +169,13 @@ a:hover .arrow { transform: translate(2px, -2px); }
 .mark-lighting { color: #ffe77f; background: #4d4520; }
 .mark-lighting::before { width: 19px; height: 19px; left: 12px; top: 7px; border: 2px solid currentColor; border-radius: 50%; box-shadow: 0 0 12px rgba(255,231,127,.28); }
 .mark-lighting::after { width: 12px; height: 8px; left: 16px; top: 25px; border-top: 2px solid currentColor; border-bottom: 2px solid currentColor; box-shadow: 0 4px 0 -1px currentColor; }
+.mark-studio { background: #5b3018; }
 .mark-overview { color: #c0c8ff; background: #30385c; }
 .mark-overview::before { content: "i"; width: 23px; height: 23px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; font: 800 14px/1 Georgia, serif; }
 .mark-overview::after { display: none; }
 
 .suite-strip { position: relative; z-index: 4; color: white; background: #0b2233; border-top: 1px solid rgba(255,255,255,.07); }
-.suite-strip-grid { display: grid; grid-template-columns: repeat(5, 1fr); }
+.suite-strip-grid { display: grid; grid-template-columns: repeat(6, 1fr); }
 .suite-strip a { min-height: 106px; padding: 20px 18px; display: flex; align-items: center; gap: 12px; border-left: 1px solid rgba(255,255,255,.08); transition: background .2s ease; }
 .suite-strip a:last-child { border-right: 1px solid rgba(255,255,255,.08); }
 .suite-strip a:hover { background: rgba(255,255,255,.045); }
@@ -192,8 +196,7 @@ a:hover .arrow { transform: translate(2px, -2px); }
 
 .suite-section { background: var(--paper); }
 .product-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
-.product-card { min-height: 455px; grid-column: span 2; padding: 28px; display: flex; flex-direction: column; border: 1px solid var(--line); background: white; position: relative; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; }
-.product-card:nth-child(4) { grid-column: 2 / span 2; }
+.product-card { min-height: 535px; grid-column: span 2; padding: 28px; display: flex; flex-direction: column; border: 1px solid var(--line); background: white; position: relative; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; }
 .product-card:hover { transform: translateY(-5px); box-shadow: 0 28px 70px rgba(16,37,54,.1); }
 .product-card::after { content: ""; height: 3px; position: absolute; inset: auto 0 0; background: var(--card-accent, var(--teal)); transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
 .product-card:hover::after { transform: scaleX(1); }
@@ -202,6 +205,7 @@ a:hover .arrow { transform: translate(2px, -2px); }
 .product-pdf { --card-accent: var(--gold); }
 .product-termination { --card-accent: var(--teal); }
 .product-lighting { --card-accent: #cdb633; }
+.product-studio { --card-accent: #dc833f; }
 .product-card-head { display: flex; align-items: start; justify-content: space-between; margin-bottom: 30px; }
 .product-number { color: #a6afb5; font-family: Consolas, "Courier New", monospace; font-size: 9px; letter-spacing: .14em; }
 .product-card > small { color: #6e7f86; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; }
@@ -212,6 +216,41 @@ a:hover .arrow { transform: translate(2px, -2px); }
 .product-card li::before { content: ""; width: 5px; height: 5px; border-right: 1px solid var(--card-accent); border-bottom: 1px solid var(--card-accent); transform: rotate(-45deg); position: absolute; left: 1px; top: 4px; }
 .product-status { margin-top: auto; display: flex; align-items: center; gap: 7px; color: #7a878d; font-family: Consolas, "Courier New", monospace; font-size: 8px; text-transform: uppercase; letter-spacing: .1em; }
 .product-status i { width: 5px; height: 5px; border-radius: 50%; background: var(--card-accent); }
+.ownership-tag { margin-top: 16px; padding-top: 14px; display: flex; flex-direction: column; gap: 5px; border-top: 1px solid var(--line); }
+.ownership-tag span { color: #8a969b; font-family: Consolas, "Courier New", monospace; font-size: 7px; letter-spacing: .12em; text-transform: uppercase; }
+.ownership-tag strong { color: #4d5e67; font-size: 10px; line-height: 1.35; }
+.ownership-cv strong { color: #267b99; }
+.ownership-ledger { margin-top: 18px; display: grid; grid-template-columns: 1.15fr .8fr 1.55fr; border: 1px solid var(--line); background: #f3f1e9; }
+.ownership-ledger > div { min-height: 94px; padding: 20px 22px; display: flex; flex-direction: column; justify-content: center; gap: 7px; border-left: 1px solid var(--line); }
+.ownership-ledger > div:first-child { border-left: 0; }
+.ownership-ledger span, .ownership-ledger small { color: #79878d; font-family: Consolas, "Courier New", monospace; font-size: 7px; letter-spacing: .11em; text-transform: uppercase; }
+.ownership-ledger strong { color: #263e4c; font-size: 12px; line-height: 1.35; }
+.ownership-ledger-title strong { font-size: 15px; }
+
+.studio-section { color: white; background: linear-gradient(125deg, #071827, #0c2b3d 62%, #102d3b); position: relative; overflow: hidden; }
+.studio-section::before { content: ""; width: 520px; height: 520px; position: absolute; right: -180px; bottom: -280px; border: 1px solid rgba(229,142,72,.22); border-radius: 50%; box-shadow: 0 0 0 70px rgba(229,142,72,.025), 0 0 0 140px rgba(229,142,72,.018); }
+.studio-layout { position: relative; display: grid; grid-template-columns: .82fr 1.18fr; gap: 70px; align-items: center; }
+.studio-copy h2 { margin: 20px 0 0; font-size: clamp(38px, 4.1vw, 58px); line-height: 1.04; letter-spacing: -.045em; font-weight: 570; }
+.studio-copy h2 em { color: #f0a766; font-family: Georgia, serif; font-weight: 400; }
+.studio-copy > p { margin: 24px 0 0; color: #a8b8c1; font-size: 15px; line-height: 1.75; }
+.studio-facts { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(255,255,255,.12); border-left: 1px solid rgba(255,255,255,.12); }
+.studio-facts div { min-height: 78px; padding: 15px; display: flex; flex-direction: column; gap: 7px; border-right: 1px solid rgba(255,255,255,.12); border-bottom: 1px solid rgba(255,255,255,.12); }
+.studio-facts strong { color: #f0a766; font-size: 15px; }
+.studio-facts span { color: #718995; font-family: Consolas, "Courier New", monospace; font-size: 7px; line-height: 1.5; letter-spacing: .08em; text-transform: uppercase; }
+.studio-list { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 10px; }
+.studio-list li { padding-left: 19px; color: #bcc8ce; font-size: 11px; line-height: 1.5; position: relative; }
+.studio-list li::before { content: ""; width: 6px; height: 6px; position: absolute; left: 1px; top: 5px; border-right: 1px solid #f0a766; border-bottom: 1px solid #f0a766; transform: rotate(-45deg); }
+.studio-owner { margin-top: 27px; padding-top: 17px; display: flex; justify-content: space-between; align-items: center; gap: 20px; border-top: 1px solid rgba(255,255,255,.12); }
+.studio-owner span { color: #718995; font-family: Consolas, "Courier New", monospace; font-size: 7px; letter-spacing: .12em; text-transform: uppercase; }
+.studio-owner strong { color: #f3d2af; font-size: 10px; text-align: right; }
+.studio-visual { margin: 0; padding: 10px; position: relative; background: rgba(255,255,255,.04); border: 1px solid rgba(240,167,102,.28); box-shadow: 0 35px 100px rgba(0,0,0,.35); }
+.studio-visual::before, .studio-visual::after { content: ""; width: 22px; height: 22px; position: absolute; z-index: 2; border-color: #e08c48; }
+.studio-visual::before { left: -1px; top: -1px; border-left: 2px solid; border-top: 2px solid; }
+.studio-visual::after { right: -1px; bottom: -1px; border-right: 2px solid; border-bottom: 2px solid; }
+.studio-visual img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center; background: #08141d; }
+.studio-visual figcaption { min-height: 64px; padding: 15px 9px 5px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.studio-visual figcaption span { color: #e6a469; font-family: Consolas, "Courier New", monospace; font-size: 7px; letter-spacing: .12em; }
+.studio-visual figcaption strong { color: #8ea2ad; font-size: 9px; font-weight: 600; text-align: right; }
 
 .workflow-section { color: white; background: linear-gradient(115deg, #061524, #0a2437); position: relative; overflow: hidden; }
 .workflow-grid { mask-image: linear-gradient(to left, transparent, black 35%, black); opacity: .22; }
@@ -320,6 +359,7 @@ a:hover .arrow { transform: translate(2px, -2px); }
 .download-card .button, .download-card .text-link { margin-top: auto; align-self: flex-start; }
 .download-card .text-link { color: white; border-bottom-color: rgba(255,255,255,.28); }
 .download-card > small { margin-top: 13px; color: #768995; font-size: 8px; line-height: 1.5; }
+.studio-download { border-color: rgba(229,142,72,.25); background: linear-gradient(135deg, rgba(229,142,72,.11), rgba(255,255,255,.035)); }
 .safety-note { margin-top: 14px; padding: 17px 20px; display: grid; grid-template-columns: 150px 1fr; gap: 20px; color: #80939e; border: 1px solid rgba(255,255,255,.08); font-size: 10px; line-height: 1.5; }
 .safety-note strong { color: var(--gold-light); text-transform: uppercase; letter-spacing: .08em; }
 
@@ -344,6 +384,10 @@ a:hover .arrow { transform: translate(2px, -2px); }
 .portrait-badge strong { color: white; font-size: 10px; }
 .about-copy h2 { margin-top: 20px; }
 .about-lead { margin: 25px 0 0; color: #a7b7c0; font-size: 16px; line-height: 1.8; }
+.about-ownership { margin-top: 25px; padding: 18px 20px; border-left: 2px solid var(--gold); background: rgba(255,255,255,.04); }
+.about-ownership > span { color: var(--gold-light); font-family: Consolas, "Courier New", monospace; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; }
+.about-ownership p { margin: 9px 0 0; color: #9eafb8; font-size: 11px; line-height: 1.7; }
+.about-ownership strong { color: white; }
 .about-lead strong { color: white; }
 .about-copy blockquote { margin: 28px 0; padding: 4px 0 4px 22px; color: var(--gold-light); border-left: 2px solid var(--gold); font-family: Georgia, serif; font-size: 18px; line-height: 1.55; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(255,255,255,.12); border-left: 1px solid rgba(255,255,255,.12); }
@@ -376,7 +420,7 @@ footer { color: #758994; background: var(--navy-950); }
   .system-card { padding: 18px; }
   .suite-strip-grid { overflow-x: auto; width: 100%; }
   .suite-strip a { min-width: 205px; }
-  .pdf-layout, .workflow-layout, .about-layout { gap: 60px; }
+  .pdf-layout, .workflow-layout, .about-layout, .studio-layout { gap: 60px; }
   .download-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -388,9 +432,13 @@ footer { color: #758994; background: var(--navy-950); }
   .system-card { width: min(100%, 610px); margin-inline: auto; }
   .split-heading { grid-template-columns: 1fr; gap: 22px; }
   .product-grid { grid-template-columns: 1fr 1fr; }
-  .product-card, .product-card:nth-child(4) { grid-column: auto; }
-  .product-card:last-child { grid-column: span 2; }
-  .workflow-layout, .pdf-layout, .about-layout { grid-template-columns: 1fr; }
+  .product-card { grid-column: auto; }
+  .workflow-layout, .pdf-layout, .about-layout, .studio-layout { grid-template-columns: 1fr; }
+  .studio-copy { max-width: 700px; }
+  .studio-visual { width: min(100%, 760px); margin-inline: auto; }
+  .ownership-ledger { grid-template-columns: 1fr 1fr; }
+  .ownership-ledger-title { grid-column: span 2; }
+  .ownership-ledger > div:nth-child(2) { border-left: 0; }
   .workflow-layout { gap: 55px; }
   .pdf-visual, .pdf-workspace { order: 2; min-height: 560px; }
   .about-layout { gap: 80px; }
@@ -418,8 +466,18 @@ footer { color: #758994; background: var(--navy-950); }
   .section { padding: 82px 0; }
   .section-heading h2, .pdf-copy h2, .workflow-copy h2, .about-copy h2 { font-size: 39px; }
   .product-grid { grid-template-columns: 1fr; }
-  .product-card, .product-card:last-child { grid-column: auto; min-height: auto; }
+  .product-card { grid-column: auto; min-height: auto; }
   .product-card > p { min-height: auto; }
+  .ownership-ledger { grid-template-columns: 1fr; }
+  .ownership-ledger-title { grid-column: auto; }
+  .ownership-ledger > div, .ownership-ledger > div:nth-child(2) { min-height: 82px; border-left: 0; border-top: 1px solid var(--line); }
+  .ownership-ledger > div:first-child { border-top: 0; }
+  .studio-facts { grid-template-columns: 1fr 1fr; }
+  .studio-owner { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .studio-owner strong { text-align: left; }
+  .studio-visual { padding: 6px; }
+  .studio-visual figcaption { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .studio-visual figcaption strong { text-align: left; }
   .qa-proof { gap: 9px; }
   .qa-proof strong { font-size: 23px; }
   .qa-steps article { grid-template-columns: 30px 1fr; }
