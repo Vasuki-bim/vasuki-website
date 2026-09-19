@@ -21,7 +21,6 @@
 .lighting-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 20px; }
 .product-card > .lighting-support { margin-top: 12px; line-height: 1.7; letter-spacing: normal; text-transform: none; }
 .lighting-download > .lighting-release { margin: 0 0 18px; color: #c8d1d6; font-size: 11px; }
-.lighting-download > .lighting-demo { margin-top: 12px; min-height: 44px; }
 .lighting-actions .text-link { min-height: 44px; }
 .lighting-details { margin-top: 24px; border: 1px solid rgba(255,255,255,.15); padding: 0 20px; color: #c8d1d6; font-size: 12px; line-height: 1.7; }
 .lighting-details summary { padding: 16px 0; min-height: 48px; cursor: pointer; color: var(--gold-light); }
